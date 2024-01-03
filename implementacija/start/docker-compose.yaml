@@ -113,7 +113,7 @@ services:
 
   zoo:
     image: confluentinc/cp-zookeeper:4.1.3-1
-    container_name: zoo1
+    container_name: zoo
     tmpfs: "/datalog"
     ports:
       - "2181:2181"
@@ -178,7 +178,8 @@ services:
 
   producer:
     build: ../stream/producer
-    container_name: kafka_producer
+    volumes:
+      - ../stream/producer:/usr/src/app
     environment:
       KAFKA_BROKER: "kafka1:19092"
     depends_on:

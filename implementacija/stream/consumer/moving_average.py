@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
-from pyspark.sql.types import StructType, StructField, FloatType, TimestampType
+from pyspark.sql.types import StructType, StructField, FloatType, TimestampType, IntegerType
 
 def quiet_logs(sc):
   logger = sc._jvm.org.apache.log4j
@@ -8,18 +8,24 @@ def quiet_logs(sc):
   logger.LogManager.getLogger("akka").setLevel(logger.Level.ERROR)
 
 schema = StructType([
-  StructField("open_time", TimestampType()),
-  StructField("open", FloatType()),
-  StructField("high", FloatType()),
-  StructField("close", FloatType()),
-  StructField("low", FloatType()),
-  StructField("volume", FloatType()),
+  StructField("t", TimestampType()),
+  StructField("o", FloatType()),
+  StructField("h", FloatType()),
+  StructField("c", FloatType()),
+  StructField("l", FloatType()),
+  StructField("v", FloatType()),
+  StructField("n", IntegerType()),
+  StructField("q", FloatType()),
+  StructField("V", FloatType()),
+  StructField("Q", FloatType()),
 ])
 
 spark = SparkSession \
     .builder \
     .appName("BTCUSDT - Moving Averages") \
     .getOrCreate()
+
+quiet_logs(spark)
 
 data = spark \
     .readStream \
@@ -33,8 +39,8 @@ df = data.selectExpr("CAST(value AS STRING)") \
         .select("data.*")
 
 result_df = df \
-    .groupBy(F.window(F.col("open_time"), "10 seconds")) \
-    .agg(F.avg("close").alias("moving_avg_close")) \
+    .groupBy(F.window(F.col("t"), "10 seconds")) \
+    .agg(F.avg("c").alias("moving_avg_close")) \
     .select("window.start", "window.end", "moving_avg_close")
 
 query = result_df \
