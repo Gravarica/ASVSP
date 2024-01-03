@@ -181,7 +181,7 @@ services:
     environment:
       KAFKA_BROKER: "kafka1:19092"
     depends_on:
-      - kafka
+      - kafka1
 
 volumes:
   namenode:
