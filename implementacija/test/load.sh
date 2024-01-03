@@ -7,5 +7,5 @@ hdfs dfs -mkdir /result
 echo "Creating /test..."
 hdfs dfs -mkdir /test
 echo "Putting /test..."
-hdfs dfs -put ./test/BTC-USDT.parquet /test
+hdfs dfs -put ./test/raw/text.txt /test
 echo "Finished..."
