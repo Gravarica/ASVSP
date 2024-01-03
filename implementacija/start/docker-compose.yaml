@@ -40,6 +40,7 @@ services:
     container_name: spark-master
     volumes:
       - ../batch:/batch
+      - ../stream/consumer:/stream
     ports:
       - 8080:8080
       - 7077:7077
@@ -176,7 +177,7 @@ services:
       - zoo
 
   producer:
-    build: ../producer
+    build: ../stream/producer
     container_name: kafka_producer
     environment:
       KAFKA_BROKER: "kafka1:19092"
