@@ -178,6 +178,7 @@ services:
 
   producer:
     build: ../stream/producer
+    container_name: kafka_producer
     volumes:
       - ../stream/producer:/usr/src/app
     environment:
