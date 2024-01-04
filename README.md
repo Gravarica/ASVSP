@@ -11,9 +11,9 @@ API-ja Binance platforme, pruži asistencija u povlačenju inteligentnih poteza 
 - Skup podataka se može preuzeti sa sledećeg linka: [Podaci](https://www.kaggle.com/datasets/jorijnsmit/binance-full-history)
 
 ### Obrada podataka 
-- Na osnovu prethodno opisanog skupa podataka, paketna obrada teži da odgovori na sledeća pitanja:
-  1) Odrediti prosečan broj izvršeni razmena i obim trgovine u minuti za svaki dan. Zatim odrediti dan kada je bila najveći prosečan broj razmena u minuti kao i dane u 2022. godini kada je obim trgovine bio veći od prosečnog.
-  2) Za svaki dan u 2022. godini, odrediti period od sat vremena tokom kojeg je bila najniža ukupna vrednost bitkoina izražena u dolarima.
+Na osnovu prethodno opisanog skupa podataka, paketna obrada teži da odgovori na sledeća pitanja:
+1) Odrediti prosečan broj izvršeni razmena i obim trgovine u minuti za svaki dan. Zatim odrediti dan kada je bila najveći prosečan broj razmena u minuti kao i dane u 2022. godini kada je obim trgovine bio veći od prosečnog.
+2) Za svaki dan u 2022. godini, odrediti period od sat vremena tokom kojeg je bila najniža ukupna vrednost bitkoina izražena u dolarima.
  
 
 ## Obrada u realnom vremenu 
@@ -23,10 +23,10 @@ API-ja Binance platforme, pruži asistencija u povlačenju inteligentnih poteza 
 - Primer osluškivanja para BTC-USDT bi izgledao ovako: "wss://stream.binance.com:9443/stream?streams=btcusdt@kline1m"
 
 ### Obrada podataka
-- Obrada u realnom vremenu teži da odgovori na sledeća pitanja:
-  1) Izračunati vrednost pokrentnog proseka cene bitkoina izražene u dolarima u intervalima od 10 sekundi 
-  2)
-  3)
+Obrada u realnom vremenu teži da odgovori na sledeća pitanja:
+1) Izračunati vrednost pokrentnog proseka cene bitkoina izražene u dolarima u intervalima od 10 sekundi 
+2)
+3)
  
 ## Dijagram Arhitekture rešenja
 - Na narednoj slici, prikazan je dijagram arhitekture rešenja
