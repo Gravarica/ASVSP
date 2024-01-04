@@ -31,5 +31,5 @@ Obrada u realnom vremenu teži da odgovori na sledeća pitanja:
 ## Dijagram Arhitekture rešenja
 - Na narednoj slici, prikazan je dijagram arhitekture rešenja
   <br></br>
-  ![slika](./specifikacija/Arhiktektura.jpg)
+  ![slika](./specifikacija/Arhitektura.jpg)
   
