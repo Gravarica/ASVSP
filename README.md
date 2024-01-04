@@ -30,4 +30,32 @@ Obrada u realnom vremenu teži da odgovori na sledeća pitanja:
  
 ## Dijagram Arhitekture rešenja
 - Na narednoj slici, prikazan je dijagram arhitekture rešenja
-  
+  <br></br>
+  ![slika](./specifikacija/Arhitektura.jpg)
+
+
+## Pokretanje 
+Kako bi se sistem koristio, potrebno je izvršiti nekoliko komandi:
+1) Pozicionirati se u direktorijum /implementacija/start
+```
+cd ./implementacija/start
+```
+2) Podignuti kontejnerizovane komponente
+```
+docker compose up -d
+```
+3) Za potrebe test primera - preuzeti datoteku BTC-USDT.parquet sa sledećeg [linka](https://drive.google.com/file/d/16iyELhBeeknktx6ZxYE9GM4bB8mPP6Xs/view?usp=drive_link)
+4) Za potrebe obrade podataka - preuzeti skup podataka sa [linka](https://www.kaggle.com/datasets/jorijnsmit/binance-full-history)
+5) Datoteku smestiti u direktorijum ./implementacija/test/raw, ukoliko se pokreće test primer. Ukoliko se pokreće obrada podataka, smestiti skup podataka u direktorijum /implementacija/data 
+```
+mv <putanja-preuzete-datoteke> <putanja-projekta>/implementacija/test/raw
+```
+6) Pokrenuti **run-test.sh**, odnosno **run.sh** skriptu za pokretanje paketne obrade podataka
+```
+./run.sh
+./run-test.sh 
+```
+
+## Korišćenje sistema 
+Na adresi localhost:8888 radi hue klijent koji omogućava objedinjen pristup svim komponentama sistema za paketnu obradu.
+
