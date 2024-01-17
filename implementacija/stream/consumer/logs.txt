@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/./../stream/moving_average.py", line 54, in <module>
+    query.awaitTermination()
+  File "/spark/python/lib/pyspark.zip/pyspark/sql/streaming.py", line 103, in awaitTermination
+  File "/spark/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py", line 1303, in __call__
+  File "/spark/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py", line 1033, in send_command
+  File "/spark/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py", line 1200, in send_command
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/spark/python/lib/pyspark.zip/pyspark/context.py", line 279, in signal_handler
+KeyboardInterrupt

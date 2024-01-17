@@ -2,22 +2,24 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql.types import StructType, StructField, FloatType, TimestampType, IntegerType
 
+
 def quiet_logs(sc):
-  logger = sc._jvm.org.apache.log4j
-  logger.LogManager.getLogger("org"). setLevel(logger.Level.ERROR)
-  logger.LogManager.getLogger("akka").setLevel(logger.Level.ERROR)
+    logger = sc._jvm.org.apache.log4j
+    logger.LogManager.getLogger("org"). setLevel(logger.Level.ERROR)
+    logger.LogManager.getLogger("akka").setLevel(logger.Level.ERROR)
+
 
 schema = StructType([
-  StructField("t", TimestampType()),
-  StructField("o", FloatType()),
-  StructField("h", FloatType()),
-  StructField("c", FloatType()),
-  StructField("l", FloatType()),
-  StructField("v", FloatType()),
-  StructField("n", IntegerType()),
-  StructField("q", FloatType()),
-  StructField("V", FloatType()),
-  StructField("Q", FloatType()),
+    StructField("t", TimestampType()),
+    StructField("o", FloatType()),
+    StructField("h", FloatType()),
+    StructField("c", FloatType()),
+    StructField("l", FloatType()),
+    StructField("v", FloatType()),
+    StructField("n", IntegerType()),
+    StructField("q", FloatType()),
+    StructField("V", FloatType()),
+    StructField("Q", FloatType()),
 ])
 
 spark = SparkSession \
@@ -25,7 +27,7 @@ spark = SparkSession \
     .appName("BTCUSDT - Moving Averages") \
     .getOrCreate()
 
-quiet_logs(spark)
+# quiet_logs(spark)
 
 data = spark \
     .readStream \
@@ -35,8 +37,8 @@ data = spark \
     .load()
 
 df = data.selectExpr("CAST(value AS STRING)") \
-        .select(F.from_json(F.col("value"), schema).alias("data")) \
-        .select("data.*")
+    .select(F.from_json(F.col("value"), schema).alias("data")) \
+    .select("data.*")
 
 result_df = df \
     .groupBy(F.window(F.col("t"), "10 seconds")) \
@@ -50,4 +52,3 @@ query = result_df \
     .start()
 
 query.awaitTermination()
-
