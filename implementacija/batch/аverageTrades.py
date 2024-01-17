@@ -35,7 +35,7 @@ customSchema = StructType([
 ])
 
 df = spark.read.option("mergeSchema", "true").schema(customSchema).parquet(
-    HDFS_NAMENODE + "/test/BTC-USDT.parquet")
+    HDFS_NAMENODE + "/data/BTC-USDT.parquet")
 
 df = df.withColumn("date", F.to_date("open_time"))
 

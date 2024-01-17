@@ -1,1 +1,1 @@
-./../spark/bin/spark-submit --packages org.postgresql:postgresql:42.2.10 ./batch/app.py
+./../spark/bin/spark-submit --packages org.postgresql:postgresql:42.2.10 ./batch/averageTrades.py

@@ -7,6 +7,7 @@ services:
     volumes:
       - namenode:/hadoop/dfs/name
       - ../test:/test
+      - ../data:/data
     environment:
       - CLUSTER_NAME=asvsp
     env_file:
@@ -123,7 +124,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
 
   kafka1:
-    image:  confluentinc/cp-kafka:4.1.3-1
+    image: confluentinc/cp-kafka:4.1.3-1
     container_name: kafka1
     ports:
       - "9092:9092"
@@ -139,9 +140,9 @@ services:
       - kafka1:/var/lib/kafka/data
     depends_on:
       - zoo
-  
+
   kafka2:
-    image:  confluentinc/cp-kafka:4.1.3-1
+    image: confluentinc/cp-kafka:4.1.3-1
     container_name: kafka2
     ports:
       - "9093:9093"
@@ -159,7 +160,7 @@ services:
       - zoo
 
   kafka3:
-    image:  confluentinc/cp-kafka:4.1.3-1
+    image: confluentinc/cp-kafka:4.1.3-1
     container_name: kafka3
     ports:
       - "9094:9094"
