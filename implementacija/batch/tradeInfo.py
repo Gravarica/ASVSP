@@ -34,18 +34,38 @@ customSchema = StructType([
     StructField("taker_buy_quote_asset_volume", FloatType(), True),
 ])
 
-df = spark.read.option("mergeSchema", "true").schema(customSchema).parquet(
-    HDFS_NAMENODE + "/data/BTC-USDT.parquet")
+crypto_pairs = ["BTC-USDT", "ETH-USDT", "BNB-USDT", "ADA-USDT", "XRP-USDT"]
 
-df = df.withColumn("date", F.to_date("open_time"))
+consolidatedDf = None
 
-window = Window.partitionBy("date")
+for pair in crypto_pairs:
+    file_path = f"/data/{pair}.parquet"
+    df_temp = spark.read.option("mergeSchema", "true").schema(
+        customSchema).parquet(HDFS_NAMENODE + file_path)
+    df_temp = df_temp.withColumn("PairID", F.lit(pair))
 
-df = df.withColumn("avg_num_trades", F.avg("number_of_trades").over(window))
+    if consolidatedDf is None:
+        consolidatedDf = df_temp
+    else:
+        consolidatedDf = consolidatedDf.union(df_temp)
 
-df = df.withColumn("avg_trade_volume", F.avg("volume").over(window))
+df = consolidatedDf.withColumn("date", F.to_date("open_time"))
 
-result_df = df.select("date", "avg_num_trades", "avg_trade_volume") \
+window = Window.partitionBy("date", "PairID")
+
+df = df.withColumn("avg_num_trades", F.avg(
+    "number_of_trades").over(window))
+
+df = df.withColumn("total_num_trades", F.sum(
+    "number_of_trades").over(window))
+
+df = df.withColumn("avg_trade_volume", F.avg(
+    "volume").over(window))
+
+df = df.withColumn("total_trade_volume", F.sum(
+    "volume").over(window))
+
+result_df = df.select("date", "pairid", "total_num_trades", "avg_num_trades",  "total_trade_volume", "avg_trade_volume") \
               .distinct() \
               .orderBy(F.desc("date"))
 
