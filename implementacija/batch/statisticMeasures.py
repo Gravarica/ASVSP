@@ -48,24 +48,6 @@ for pair in crypto_pairs:
     else:
         consolidatedDf = consolidatedDf.union(df_temp)
 
-# dfBTC = spark.read.option("mergeSchema", "true").schema(customSchema).parquet(
-#     HDFS_NAMENODE + "/data/BTC-USDT.parquet")
-# dfETH = spark.read.option("mergeSchema", "true").schema(customSchema).parquet(
-#     HDFS_NAMENODE + "/data/ETH-USDT.parquet")
-# dfBNB = spark.read.option("mergeSchema", "true").schema(customSchema).parquet(
-#     HDFS_NAMENODE + "/data/BNB-USDT.parquet")
-# dfADA = spark.read.option("mergeSchema", "true").schema(customSchema).parquet(
-#     HDFS_NAMENODE + "/data/ADA-USDT.parquet")
-# dfXRP = spark.read.option("mergeSchema", "true").schema(customSchema).parquet(
-#     HDFS_NAMENODE + "/data/XRP-USDT.parquet")
-
-# dfBTC = dfBTC.withColumn("PairID", F.lit("BTC-USDT"))
-# dfETH = dfETH.withColumn("PairID", F.lit("ETH-USDT"))
-# dfBNB = dfBNB.withColumn("PairID", F.lit("BNB-USDT"))
-# dfADA = dfADA.withColumn("PairID", F.lit("ADA-USDT"))
-# dfXRP = dfXRP.withColumn("PairID", F.lit("XRP-USDT"))
-
-# consolidatedDf = dfBTC.union(dfETH).union(dfBNB).union(dfADA).union(dfXRP)
 consolidatedDf = consolidatedDf.withColumn("date", F.to_date("open_time"))
 
 # Za rsi
@@ -116,7 +98,7 @@ final_df = volatilityDf.join(rsi_df, ["PairID", "Date"]).join(ma_df, ["PairID", 
 
 # Final DataFrame
 final_df = final_df.select("PairID", "date", "MovingAverage","UpperBand", "LowerBand", "Volatility", "RSI")
-final_df.write.mode("overwrite").saveAsTable("technical_analysis")
+final_df.write.mode("overwrite").saveAsTable("technical_indicators")
 
 print("Picked up data frame...")
 print("Saved to table!")

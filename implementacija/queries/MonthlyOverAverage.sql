@@ -1,3 +1,6 @@
+-- Za izabrani par kriptovaluta prikazati koliko puta u svakom mesecu je broj razmena u danu bio duplo veci od 
+-- proseka za taj mesec 
+
 WITH monthly_avg_trades AS
 (SELECT 
     PairID, 

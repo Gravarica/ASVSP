@@ -1,3 +1,5 @@
+-- Za izabrani par kriptovaluta odrediti 5 meseci kada je RSI bio najnizi
+
 WITH MonthlyAvgRSI AS (
     SELECT 
         YEAR(`date`) as year,
@@ -5,7 +7,7 @@ WITH MonthlyAvgRSI AS (
         pairid,
         AVG(rsi) as avg_rsi
     FROM 
-        technical_analysis
+        technical_indicators
     WHERE 
         pairid = 'BTC-USDT'
     GROUP BY 
