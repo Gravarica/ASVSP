@@ -50,17 +50,13 @@ Kako bi se sistem koristio, potrebno je izvršiti nekoliko komandi:
 ```
 cd ./implementacija/start
 ```
-2) Podignuti kontejnerizovane komponente
-```
-docker compose up -d
-```
-3) Za potrebe test primera - preuzeti datoteku BTC-USDT.parquet sa sledećeg [linka](https://drive.google.com/file/d/1tkZISQzd92eLgWNzMrnsYJUlJPizKyh6/view?usp=drive_link)
-4) Za potrebe obrade podataka - preuzeti skup podataka sa [linka](https://www.kaggle.com/datasets/jorijnsmit/binance-full-history)
-5) Datoteku smestiti u direktorijum ./implementacija/test/raw, ukoliko se pokreće test primer. Ukoliko se pokreće obrada podataka, smestiti skup podataka u direktorijum /implementacija/data/raw
+2) Za potrebe test primera - preuzeti datoteku BTC-USDT.parquet sa sledećeg [linka](https://drive.google.com/file/d/1tkZISQzd92eLgWNzMrnsYJUlJPizKyh6/view?usp=drive_link)
+3) Za potrebe obrade podataka - preuzeti skup podataka sa [linka](https://www.kaggle.com/datasets/jorijnsmit/binance-full-history)
+4) Datoteku smestiti u direktorijum ./implementacija/test/raw, ukoliko se pokreće test primer. Ukoliko se pokreće obrada podataka, smestiti skup podataka u direktorijum /implementacija/data/raw
 ```
 mv <putanja-preuzete-datoteke> <putanja-projekta>/implementacija/test/raw
 ```
-6) Pokrenuti **run-test.sh**, odnosno **run.sh** skriptu za pokretanje paketne obrade podataka
+5) Pokrenuti **run-test.sh**, odnosno **run.sh** skriptu za pokretanje paketne obrade podataka
 ```
 ./run.sh
 ./run-test.sh 
@@ -68,4 +64,5 @@ mv <putanja-preuzete-datoteke> <putanja-projekta>/implementacija/test/raw
 
 ## Korišćenje sistema 
 Na adresi localhost:8888 radi hue klijent koji omogućava objedinjen pristup svim komponentama sistema za paketnu obradu.
+Na adresi localhost:8088 radi superset koji omogućava vizuelizaciju 
 
