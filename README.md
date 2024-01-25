@@ -12,8 +12,16 @@ API-ja Binance platforme, pruži asistencija u povlačenju inteligentnih poteza 
 
 ### Obrada podataka 
 Na osnovu prethodno opisanog skupa podataka, paketna obrada teži da odgovori na sledeća pitanja:
-1) Odrediti prosečan broj izvršeni razmena i obim trgovine u minuti za svaki dan. Zatim odrediti dan kada je bila najveći prosečan broj razmena u minuti kao i dane u 2022. godini kada je obim trgovine bio veći od prosečnog.
-2) Za svaki dan u 2022. godini, odrediti period od sat vremena tokom kojeg je bila najniža ukupna vrednost bitkoina izražena u dolarima.
+1.	Za svaki par kriptovaluta odrediti najveću i najmanju cenu tokom svake godine.
+2.	Odrediti ukupan promet tržišta kriptovaluta izražen u dolarima za svaku godinu.
+3.	Za svaki par kriptovaluta izračunati 30-dnevni pokretni prosek obima razmene i odrediti da li je trend rastući ili opadajući.
+4.	Odrediti kako su periodi sa znatno velikim obimom trgovine uticali na promenu cene izabranog para kriptovaluta.
+5.	Za svaki par kriptovaluta odrediti promene u koeficijentu korelacije sa drugim parovima na kvartalnom nivou u toku godine.
+6.	Odrediti uticaj visokog/niskog relativnog indeksa snage na promenu u ceni i obimu prodaje određene kriptovalute.
+7.	Za svaki mesec od 2017. do 2022. godine, prebrojati koliko puta su se pojavili Hammer ili Shooting Star šabloni BTC-USDT svećnjaka.
+8.	Za izabrani par kriptovaluta prikazati koliko puta u svakom mesecu je broj razmena u danu bio duplo veći od proseka za taj mesec.
+9.	Za izabrani par kriptovaluta odrediti 5 meseci kada je relativni indeks snage bio najniži.
+10.	Za izabrani par kriptovaluta odrediti periode kada je cena zatvaranja bila iznad ili ispod bolingerovog pojasa.
  
 
 ## Obrada u realnom vremenu 
@@ -24,9 +32,11 @@ Na osnovu prethodno opisanog skupa podataka, paketna obrada teži da odgovori na
 
 ### Obrada podataka
 Obrada u realnom vremenu teži da odgovori na sledeća pitanja:
-1) Izračunati vrednost pokrentnog proseka cene bitkoina izražene u dolarima u intervalima od 10 sekundi 
-2)
-3)
+1.	Odrediti prosečan broj izvršenih razmena u periodima od 5 minuta.
+2.	Računati vrednost pokretnog proseka cene bitkoina izražene u dolarima u intervalima od 5 minuta.
+3.	Računati ukupan promet na tržištu kriptovaluta izražen u dolarima u periodima od 10 minuta.
+4.	Pratiti da li dolazi do naglog skoka u obimu trgovine u periodima od 1 minute. Analizirati da li je obim prikupljenog svećnjaka iznad prosečnog obima u periodu prethodne minute.
+5.	Izračunati Bolingerov pojas za izabrani par kriptovaluta u periodima od 5 minuta.
  
 ## Dijagram Arhitekture rešenja
 - Na narednoj slici, prikazan je dijagram arhitekture rešenja
