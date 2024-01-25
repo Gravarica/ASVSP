@@ -1,58 +1,66 @@
  Network start_default  Creating
  Network start_default  Created
- Container hive-metastore  Creating
+ Volume "start_kafka1"  Creating
+ Volume "start_kafka1"  Created
+ Volume "start_datanode1"  Creating
+ Volume "start_datanode1"  Created
+ Volume "start_namenode"  Creating
+ Volume "start_namenode"  Created
+ Volume "start_datanode2"  Creating
+ Volume "start_datanode2"  Created
+ Container datanode1  Creating
+ Container namenode  Creating
  Container spark-master  Creating
  Container hive-metastore-postgresql  Creating
- Container zoo  Creating
- Container hive-server  Creating
  Container datanode2  Creating
- Container namenode  Creating
+ Container hive-server  Creating
+ Container hive-metastore  Creating
+ Container zoo  Creating
  Container superset  Creating
- Container datanode1  Creating
- Container hive-server  Created
- Container superset  Created
  Container hive-metastore-postgresql  Created
- Container datanode2  Created
  Container datanode1  Created
+ Container datanode2  Created
  Container namenode  Created
  Container hue  Creating
+ Container hive-server  Created
  Container spark-master  Created
- Container hive-metastore  Created
  Container spark-worker1  Creating
  Container spark-worker2  Creating
  Container zoo  Created
  Container kafka1  Creating
- Container hue  Created
+ Container hive-metastore  Created
+ Container superset  Created
  Container spark-worker2  Created
+ Container hue  Created
  Container spark-worker1  Created
  Container kafka1  Created
  Container kafka_producer  Creating
  Container kafka_producer  Created
- Container hive-server  Starting
  Container namenode  Starting
+ Container datanode2  Starting
+ Container hive-metastore  Starting
+ Container hive-server  Starting
+ Container zoo  Starting
  Container superset  Starting
+ Container hive-metastore-postgresql  Starting
  Container spark-master  Starting
  Container datanode1  Starting
- Container datanode2  Starting
- Container hive-metastore-postgresql  Starting
- Container hive-metastore  Starting
- Container zoo  Starting
- Container superset  Started
- Container namenode  Started
- Container hue  Starting
+ Container datanode2  Started
+ Container spark-master  Started
+ Container spark-worker2  Starting
+ Container spark-worker1  Starting
  Container hive-server  Started
  Container hive-metastore  Started
- Container spark-master  Started
- Container spark-worker1  Starting
- Container spark-worker2  Starting
+ Container namenode  Started
+ Container hue  Starting
  Container hive-metastore-postgresql  Started
+ Container superset  Started
  Container zoo  Started
  Container kafka1  Starting
- Container datanode2  Started
  Container datanode1  Started
- Container hue  Started
- Container spark-worker1  Started
  Container spark-worker2  Started
+ Container spark-worker1  Started
+ Container hue  Started
  Container kafka1  Started
  Container kafka_producer  Starting
  Container kafka_producer  Started

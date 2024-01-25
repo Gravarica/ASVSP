@@ -21,11 +21,14 @@ until [ "`docker inspect -f {{.State.Running}} namenode`"=="true" ]; do
 done
 echo_message "Namenode is ready."
 
+sleep 60
+
 commands=(
     "winpty docker exec -it namenode bash -c 'hdfs dfs -rm -r -f /data'"
     "winpty docker exec -it namenode bash -c 'hdfs dfs -mkdir -p /data'"
     "winpty docker exec -it namenode bash -c 'hdfs dfs -put ./data/raw/*.parquet /data'"
     "winpty docker exec -it spark-master bash -c 'chmod +x ./batch/process.sh && ./batch/process.sh'"
+    "winpty docker exec -it spark-master bash -c 'chmod +x ./stream/process.sh && ./stream/process.sh'"
 )
 
 for cmd in "${commands[@]}"; do
