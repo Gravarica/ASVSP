@@ -1,3 +1,5 @@
+-- Prebrojati koliko puta se pojavio Hammer ili ShootingStar obrazac za BTC-USDT par 
+
 WITH CandlestickPatterns AS (
     SELECT
         pairid,
