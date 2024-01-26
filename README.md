@@ -35,8 +35,9 @@ Obrada u realnom vremenu teži da odgovori na sledeća pitanja:
 1.	Odrediti prosečan broj izvršenih razmena u periodima od 5 minuta.
 2.	Računati vrednost pokretnog proseka cene bitkoina izražene u dolarima u intervalima od 5 minuta.
 3.	Računati ukupan promet na tržištu kriptovaluta izražen u dolarima u periodima od 10 minuta.
-4.	Pratiti da li dolazi do naglog skoka u obimu trgovine u periodima od 1 minute. Analizirati da li je obim prikupljenog svećnjaka iznad prosečnog obima u periodu prethodne minute.
+4.	Pratiti da li dolazi do naglog skoka u obimu trgovine u periodima od 1 minute. Analizirati da li je obim prikupljenog svećnjaka iznad prosečnog obima u periodu prethodne minute.*
 5.	Izračunati Bolingerov pojas za izabrani par kriptovaluta u periodima od 5 minuta.
+6.	Izracunati prosecan broj razmena u periodima od 5 minuta na Binance platformi
  
 ## Dijagram Arhitekture rešenja
 - Na narednoj slici, prikazan je dijagram arhitekture rešenja
